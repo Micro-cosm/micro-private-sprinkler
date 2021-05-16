@@ -1,0 +1,23 @@
+
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$micro-private-element-primary: mat-palette($mat-indigo);
+$micro-private-element-accent: mat-palette($mat-pink, A200, A100, A400);
+
+$micro-private-element-warn: mat-palette($mat-red);
+
+$micro-private-element-theme: mat-light-theme((
+	color: (
+		primary: $micro-private-element-primary,
+		accent: $micro-private-element-accent,
+		warn: $micro-private-element-warn,
+	)
+));
+
+@include angular-material-theme($micro-private-element-theme);
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

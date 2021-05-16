@@ -1,0 +1,13 @@
+
+
+<mat-card class="">
+	<mat-card-content>
+		<ngx-auth-firebaseui [tabindex]		= "0"
+							 signOutText	= {{signOutText}}
+							 (onSuccess)	= "onSuccess($event)"
+							 (onError)		= "onError($event)"
+							 [providers]	= "[providers.Google, providers.Facebook, providers.Twitter]"
+		></ngx-auth-firebaseui>
+	</mat-card-content>
+</mat-card>
+

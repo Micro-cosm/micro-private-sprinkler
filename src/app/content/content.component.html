@@ -1,0 +1,7 @@
+
+
+<div style="padding: 10%; ">
+	<div *ngFor="let content of content$ | async">
+		<div [innerHTML]="content.value"></div>
+	</div>
+</div>

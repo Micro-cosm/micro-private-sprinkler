@@ -1,0 +1,12 @@
+
+
+
+.mat-card{
+  margin-bottom: 2rem;
+}
+
+.stand-alone-providers {
+  ngx-auth-firebaseui-providers:not(:last-child) {
+    margin-bottom: 2rem !important;
+  }
+}

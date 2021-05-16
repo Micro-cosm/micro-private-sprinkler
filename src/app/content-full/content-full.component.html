@@ -1,0 +1,14 @@
+
+
+<!--div class="parallax" style="height: 623px"></div-->
+
+<div *ngIf="rows$">
+	<div *ngFor="let row of rows$ | async">
+		<ng-container *ngIf="row.value == '{subscribeButton}'; else notDonateButton">
+			<div class="payButton" [innerHTML]="subscribeButton"></div>
+		</ng-container>
+		<ng-template #notDonateButton>
+			<div [outerHTML]="row.value"></div>
+		</ng-template>
+	</div>
+</div>

@@ -1,0 +1,24 @@
+{
+    "compileOnSave": false,
+    "angularCompilerOptions": {
+        "fullTemplateTypeCheck": true,
+        "strictInjectionParameters": true
+    },
+    "compilerOptions": {
+        "baseUrl": "./",
+        "declaration": false,
+        "downlevelIteration": true,
+        "experimentalDecorators": true,
+        "importHelpers": true,
+        "lib": [
+            "es2018",
+            "dom"
+        ],
+        "module": "esnext",
+        "moduleResolution": "node",
+        "target": "es2015",
+        "typeRoots": [
+            "node_modules/@types"
+        ],
+    }
+}
