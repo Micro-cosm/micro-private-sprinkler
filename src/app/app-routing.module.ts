@@ -9,13 +9,15 @@ import { LoggedOutComponent		} from './logged-out/logged-out.component';
 import { LoginComponent			} from './login/login.component';
 import { ContentComponent		} from './content/content.component';
 import { ContentFullComponent	} from './content-full/content-full.component';
-// import { LoggedInGuard	} from 'ngx-auth-firebaseui';																// INHERIT 'canActivate' FROM ngx-auth-firebaseui
+import { MifeComponent			} from "./mife/mife.component";
+// import { LoggedInGuard	} from 'ngx-auth-firebaseui';			// INHERIT 'canActivate' FROM ngx-auth-firebaseui
 
 export const routes: Routes = [
 	{ path: '',		redirectTo: '/home', pathMatch: 'full' 											},
 	{ path: 'logged-out',			component: LoggedOutComponent									},
 	{ path: 'login',				component: LoginComponent										},
 	{ path: 'home',					component: HomeComponent,			canActivate: [AuthGuard]	},
+	{ path: 'mife',					component: MifeComponent,			canActivate: [AuthGuard]	},
 	{ path: 'content/:page',		component: ContentComponent,		canActivate: [AuthGuard]	},
 	{ path: 'content-full/:page',	component: ContentFullComponent,	canActivate: [AuthGuard]	},
 	{ path: '**',	redirectTo: '/home'																}

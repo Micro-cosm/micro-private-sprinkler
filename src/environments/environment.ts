@@ -14,8 +14,8 @@ const thisMife		= privateMife;
 
 const alias			= process.env.ALIAS			|| 'dev';
 const title			= process.env.TITLE			|| 'Default Private Website Title';
-const debug			= process.env.DEBUG			|| 'true';
-const logs			= process.env.LOGS			|| 'true';
+const debug			= process.env.DEBUG			|| 'false';
+const logs			= process.env.LOGS			|| 'false';
 const authMife		= process.env.AUTH_MIFE		|| remote.default.AUTH_MIFE;
 const chatMife		= process.env.CHAT_MIFE		|| remote.default.CHAT_MIFE;
 const formMife		= process.env.FORM_MIFE		|| remote.default.FORM_MIFE;
@@ -86,4 +86,4 @@ export const environment = {
 	timeZone: 'America/Denver'
 };
 
-import 'zone.js/dist/zone-error';
+import 'zone.js/plugins/zone-error';

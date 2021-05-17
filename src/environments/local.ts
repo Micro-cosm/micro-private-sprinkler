@@ -6,7 +6,7 @@ export const local = {
 		AUTH_MIFE: 		'http://localhost:4422/#/',
 		CHAT_MIFE: 		'http://localhost:4415/#/',
 		FORM_MIFE: 		'http://localhost:4423/#/',
-		PRIVATE_MIFE:	'http://localhost:4421/#/',
+		PRIVATE_MIFE:	'http://localhost:4423/#/',
 		PUBLIC_MIFE: 	'http://localhost:4402/#/'
 	}
 }

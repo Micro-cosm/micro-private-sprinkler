@@ -24,8 +24,8 @@ export class AuthGuard implements CanActivate {
 		private router:			Router,
 		private authProcess:	AuthProcessService
 	) {
-		console.log( '>> AuthGuard -> constructing -> config:', config );
 		this.env = environment
+		if ( this.env.debug ) console.log( '>> AuthGuard -> constructing -> config:', config );
 	}
 	
 	canActivate(
@@ -35,17 +35,15 @@ export class AuthGuard implements CanActivate {
 		if ( this.env.debug ) console.log( '>> AuthGuard -> canActivate -> router state:', state );
 
 		return this.authProcess.afa.user.pipe( map( user => {
-			if ( this.env.debug ) console.log( '>> AuthGuard -> canActivate -> user:', user );
-			if ( this.env.debug ) console.log( '>> AuthGuard -> canActivate -> config:', this.config );
+			if ( this.env.logs )	console.log('>> AuthGuard -> canActivate -> user:', user);
+			if ( this.env.debug )	console.log('>> AuthGuard -> canActivate -> config:', this.config);
 			if ( user ) {
 				if (
-					this.env.remote											&&
-					this.config.guardProtectedRoutesUntilEmailIsVerified	&&
-					! user.emailVerified									&&
-					! user.isAnonymous
+					this.config.guardProtectedRoutesUntilEmailIsVerified  &&
+					this.env.remote  &&  !user.emailVerified  &&  !user.isAnonymous
 				) {
 					console.log( 'Oops...  You are logged in to a remote system with an account that has an unverified email address.' );
-					if ( this.env.debug ) console.log( '>>> AuthGuard -> Redirecting to remote fallback URL:', this.env.authGuardRemoteFallbackURL );
+					if ( this.env.debug ) console.log( '>>> AuthGuard -> Redirecting to:', this.env.authGuardRemoteFallbackURL );
 					window.location.href = this.env.authGuardRemoteFallbackURL;
 				}
 				return true

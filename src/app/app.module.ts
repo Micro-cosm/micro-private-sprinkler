@@ -26,11 +26,12 @@ import 'hammerjs';
 export function firebaseAppNameFactory() { return `weja-us` }
 
 // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// CONTENT
-import { ContentComponent			} from './content/content.component';
-import { ContentFullComponent		} from './content-full/content-full.component';
-import { NavPipe					} from './_pipes/nav.pipe';
-import { SafePipe					} from './_pipes/safe.pipe';
-import { CmsService					} from './_services/cms.service';
+import { ContentComponent		} from './content/content.component';
+import { ContentFullComponent	} from './content-full/content-full.component';
+import { NavPipe				} from './_pipes/nav.pipe';
+import { SafePipe				} from './_pipes/safe.pipe';
+import { CmsService				} from './_services/cms.service';
+import { MifeComponent 			} from './mife/mife.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { CmsService					} from './_services/cms.service';
 		ContentFullComponent,
 		NavPipe,
 		SafePipe,
+		MifeComponent
 	],
 	imports: [
 		AngularFireModule.initializeApp(environment.firebase.creds),

@@ -14,7 +14,6 @@
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
                         "allowedCommonJsDependencies": ["hammerjs", "zen-observable", "firebase", "@firebase"],
-                        "aot": true,
                         "baseHref": "/private-element/",
                         "deployUrl": "/private-element/",
                         "extractLicenses": false,
@@ -32,7 +31,8 @@
                             "node_modules/material-design-icons/iconfont/material-icons.css"
                         ],
                         "tsConfig": "src/tsconfig.app.json",
-                        "vendorChunk": true
+                        "vendorChunk": true,
+                        "buildOptimizer": false
                     },
                     "configurations": {
                         "production": {

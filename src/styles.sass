@@ -5,6 +5,64 @@
 body
 	border: 5px solid black
 	
-@media only screen and ( min-width: 750px )	// WEB
+pre
+	font-family: monospace
+	text-align: center
+	background-color: gainsboro
+	padding: 5px
+	border: 5px solid lime
+	// border: 5px dashed red
+	margin: 0 0 3px
+	span
+		border: double
+		color: red
+	.closer
+		background-color: #fff
+		color: red
+		cursor: pointer
+		border-color: red
+		border-width: 2px
+		border-style: groove
+		
+.ttt
+	background-color: black
+	text-align: left
+	color: #fff
+	font: 500 20px/32px Roboto,Helvetica Neue,sans-serif
+	padding: 5px
+	position: relative
+	z-index: 1
 
-@media only screen and ( max-width: 750px ) // MOBILE
+span.navttt
+	visibility: hidden
+span.dhttt
+	visibility: hidden
+span.titlettt
+	visibility: hidden
+
+span.navtt:hover
+	div.navttt
+		visibility: visible
+	
+span.navtt:hover
+	div.titlettt
+		visibility: visible
+
+span.dhtt:hover
+	div.dhttt
+		visibility: visible
+
+
+@media only screen and ( min-width: 750px )		// WEB
+	pre
+		font-size: 12px
+	.closer
+		margin-left: 10%
+		
+		
+		
+@media only screen and ( max-width: 750px )		// MOBILE
+	pre
+		font-size: 7px
+	.closer
+		margin-left: 3%
