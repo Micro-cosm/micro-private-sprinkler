@@ -6,12 +6,51 @@ input[type="button"]
 	padding: 2px
 	margin-bottom: 4px
 
-div
-	padding: 2.5%
-	display: flex
-	justify-content: left
-	.zone
-		justify-content: space-evenly
-
 h3
 	margin: auto
+	
+.titles
+	text-align: center
+	color: white
+	
+div
+	display: flex
+	flex-direction: row
+
+@media only screen and ( min-width: 750px )		// WEB
+	.mobile
+		display: none
+	.web
+		display: flex
+	div
+		padding: 2%
+		.pods
+			min-width: 45%
+		.zones
+			justify-content: space-evenly
+		.titles
+			text-align: center
+		.buttons
+			flex-direction: column
+			justify-content: space-evenly
+		.mife
+			flex-direction: column
+			width: 65%
+	img
+		height: 56vh
+
+@media only screen and ( max-width: 750px )		// MOBILE
+	.mobile
+		display: flex
+	.web
+		display: none
+	div
+		display: flex
+		flex-direction: column
+		.zone
+			justify-content: space-evenly
+		.buttons
+			flex-direction: row
+			justify-content: center
+		.mife
+			flex-direction: column

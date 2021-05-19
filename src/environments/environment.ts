@@ -8,8 +8,8 @@ import { remote	} from "./remote";
 import { local	} from "./local";
 
 
-
-const privateMife	= process.env.PRIVATE_MIFE	|| local.default.PRIVATE_MIFE;		// DEFINES THIS MIFE
+const thisHost		= local.default.THIS_HOST;
+const privateMife	= process.env.PRIVATE_MIFE	|| local.default.PRIVATE_MIFE;			// DEFINES THIS MIFE
 const thisMife		= privateMife;
 
 const alias			= process.env.ALIAS			|| 'dev';
@@ -36,7 +36,8 @@ export const environment = {
 	local:		true,
 	remote:		false,
 	title:		title,
-	assets: { bucket: assetsBucket },
+	assets: { bucket:	assetsBucket	},
+	this:	{ host:		thisHost		},
 	mife: {
 		this:		thisMife,
 		private:	thisMife,

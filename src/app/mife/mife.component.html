@@ -1,104 +1,137 @@
 
 
-<div style="margin: 2.5%; background-color: gainsboro; display: flex;">
-	<div style="flex-direction: column;">
-		<h1> LED Test Light </h1>
+<div style="font-family: 'Courier New', monospace; background-color: grey; color: floralwhite; padding: 1% 2.5%; margin: 0 2.5%;">
+	<div style="white-space: nowrap;">Relay return:</div><div> <strong> {{status|json}} </strong> </div>
+</div>
+<div style="margin: 0 2.5%; background-color: gainsboro; display: flex; align-items: flex-end;">
+	<div class="mife">
+		<h1> Unit Test </h1>
 		<div>
-			<div [style.background-color]="lightOn?'blue': 'red'" class="zone">
-				<div style="text-align: center">
-					<h3 style="color: white"> Blue<br/>Auxiliary </h3>
-				</div>
-				<div>
-					<input type="button" (click)="light(true	)" value="ON"  [disabled]="lightOn"	>
-					<input type="button" (click)="light(false	)" value="OFF" [disabled]="!lightOn">
+			<div class="zones"
+				(mouseover)="changeImage('derp1')"
+				(mouseout)="changeImage('lot1')"
+				[style.background-color]="lightOn[0]?'blue': 'red'"
+			>
+				<div class="titles mobile"	><h2> Blue Auxiliary LED				</h2></div>
+				<div class="titles web"		><h3> Blue <br/> Auxiliary <br/> LED	</h3></div>
+				<div class="buttons">
+					<input type="button" (click)="setLight(true)"	value="ON"  [disabled]="  lightOn[0]">
+					<input type="button" (click)="setLight(false)"	value="OFF" [disabled]="! lightOn[0]">
 				</div>
 			</div>
 		</div>
 		<hr/>
 		<h1> POD 1 </h1>
-		<div>
-			<div [style.background-color]="sprinklerOn[0][0]?'green': 'red'" class="zone">
-				<div style="text-align: center">
-					<h3 style="color: white"> Zone<br/>#1 </h3>
-				</div>
-				<div>
-					<input type="button" (click)="sprinkler(0,0,true	)" value="ON"	[disabled]="sprinklerOn[0][0]"	>
-					<input type="button" (click)="sprinkler(0,0,false	)" value="OFF"	[disabled]="!sprinklerOn[0][0]"	>
-				</div>
-			</div>
-			<hr/>
-			<div [style.background-color]="sprinklerOn[0][1]?'green': 'red'" class="zone">
-				<div style="text-align: center">
-					<h3 style="color: white"> Zone<br/>#2 </h3>
-				</div>
-				<div>
-					<input type="button" (click)="sprinkler(0,1,true	)" value="ON"	[disabled]="sprinklerOn[0][1]"	>
-					<input type="button" (click)="sprinkler(0,1,false	)" value="OFF"	[disabled]="!sprinklerOn[0][1]"	>
+		<div class="pods">
+			<div class="zones"
+				 (mouseover)="changeImage('zone1')"
+				 (mouseout)="changeImage('lot1')"
+				 [style.background-color]="sprinklerOn[0][0][0]?'green': 'red'"
+			>
+				<div class="titles mobile"	><h2> Zone #1			</h2></div>
+				<div class="titles web"		><h3> Zone <br/> # 1	</h3></div>
+				<div class="buttons">
+					<input type="button" (click)="setSprinkler(0,0,true)"	value="ON"	[disabled]="  sprinklerOn[0][0][0]"	>
+					<input type="button" (click)="setSprinkler(0,0,false)"	value="OFF"	[disabled]="! sprinklerOn[0][0][0]"	>
 				</div>
 			</div>
 			<hr/>
-			<div [style.background-color]="sprinklerOn[0][2]?'green': 'red'" class="zone">
-				<div style="text-align: center">
-					<h3 style="color: white"> Zone<br/>#3 </h3>
-				</div>
-				<div>
-					<input type="button" (click)="sprinkler(0,2,true	)" value="ON"	[disabled]="sprinklerOn[0][2]"	>
-					<input type="button" (click)="sprinkler(0,2,false	)" value="OFF"	[disabled]="!sprinklerOn[0][2]"	>
+			<div class="zones"
+				(mouseover)="changeImage('zone2')"
+				(mouseout)="changeImage('lot1')"
+				[style.background-color]="sprinklerOn[0][1][0]?'green': 'red'"
+			>
+				<div class="titles mobile"	><h2> Zone #2			</h2></div>
+				<div class="titles web"		><h3> Zone <br/> # 2	</h3></div>
+				<div class="buttons">
+					<input type="button" (click)="setSprinkler(0,1,true)"	value="ON"	[disabled]="  sprinklerOn[0][1][0]"	>
+					<input type="button" (click)="setSprinkler(0,1,false)"	value="OFF"	[disabled]="! sprinklerOn[0][1][0]"	>
 				</div>
 			</div>
 			<hr/>
-			<div [style.background-color]="sprinklerOn[0][3]?'green': 'red'" class="zone">
-				<div style="text-align: center">
-					<h3 style="color: white"> Zone<br/>#4 </h3>
+			<div class="zones"
+				(mouseover)="changeImage('zone3')"
+				(mouseout)="changeImage('lot1')"
+				[style.background-color]="sprinklerOn[0][2][0]?'green': 'red'"
+			>
+				<div class="titles mobile"	><h2> Zone #3			</h2></div>
+				<div class="titles web"		><h3> Zone <br/> # 3	</h3></div>
+				<div class="buttons">
+					<input type="button" (click)="setSprinkler(0,2,true)"	value="ON"	[disabled]="  sprinklerOn[0][2][0]"	>
+					<input type="button" (click)="setSprinkler(0,2,false)" value="OFF"	[disabled]="! sprinklerOn[0][2][0]"	>
 				</div>
-				<div>
-					<input type="button" (click)="sprinkler(0,3,true	)" value="ON"	[disabled]="sprinklerOn[0][3]"	>
-					<input type="button" (click)="sprinkler(0,3,false	)" value="OFF"	[disabled]="!sprinklerOn[0][3]"	>
+			</div>
+			<hr/>
+			<div class="zones"
+				(mouseover)="changeImage('zone4')"
+				(mouseout)="changeImage('lot1')"
+				[style.background-color]="sprinklerOn[0][3][0]?'green': 'red'"
+			>
+				<div class="titles mobile"	><h2> Zone #4			</h2></div>
+				<div class="titles web"		><h3> Zone <br/> # 4	</h3></div>
+				<div class="buttons">
+					<input type="button" (click)="setSprinkler(0,3,true)"	value="ON"	[disabled]="  sprinklerOn[0][3][0]"	>
+					<input type="button" (click)="setSprinkler(0,3,false)"	value="OFF"	[disabled]="! sprinklerOn[0][3][0]"	>
 				</div>
 			</div>
 		</div>
 		<hr/>
 		<h1> POD 2 </h1>
-		<div>
-			<div [style.background-color]="sprinklerOn[1][0]?'green': 'red'" class="zone">
-				<div style="text-align: center">
-					<h3 style="color: white"> Zone<br/>#5 </h3>
-				</div>
-				<div>
-					<input type="button" (click)="sprinkler(1,0,true	)" value="ON"	[disabled]="sprinklerOn[1][0]"	>
-					<input type="button" (click)="sprinkler(1,0,false	)" value="OFF"	[disabled]="!sprinklerOn[1][0]"	>
-				</div>
-			</div>
-			<hr/>
-			<div [style.background-color]="sprinklerOn[1][1]?'green': 'red'" class="zone">
-				<div style="text-align: center">
-					<h3 style="color: white"> Zone<br/>#6 </h3>
-				</div>
-				<div>
-					<input type="button" (click)="sprinkler(1,1,true	)" value="ON"	[disabled]="sprinklerOn[1][1]"	>
-					<input type="button" (click)="sprinkler(1,1,false	)" value="OFF"	[disabled]="!sprinklerOn[1][1]"	>
+		<div class="pods">
+			<div class="zones"
+				(mouseover)="changeImage('zone5')"
+				(mouseout)="changeImage('lot1')"
+				[style.background-color]="sprinklerOn[1][0][0]?'green': 'red'"
+			>
+				<div class="titles mobile"	><h2> Zone #5			</h2></div>
+				<div class="titles web"		><h3> Zone <br/> # 5	</h3></div>
+				<div class="buttons">
+					<input type="button" (click)="setSprinkler(1,0,true)"	value="ON"	[disabled]="  sprinklerOn[1][0][0]"	>
+					<input type="button" (click)="setSprinkler(1,0,false)"	value="OFF"	[disabled]="! sprinklerOn[1][0][0]"	>
 				</div>
 			</div>
 			<hr/>
-			<div [style.background-color]="sprinklerOn[1][2]?'green': 'red'" class="zone">
-				<div style="text-align: center">
-					<h3 style="color: white"> Zone<br/>#7 </h3>
-				</div>
-				<div>
-					<input type="button" (click)="sprinkler(1,2,true	)" value="ON"	[disabled]="sprinklerOn[1][2]"	>
-					<input type="button" (click)="sprinkler(1,2,false	)" value="OFF"	[disabled]="!sprinklerOn[1][2]"	>
+			<div class="zones"
+				(mouseover)="changeImage('zone6')"
+				(mouseout)="changeImage('lot1')"
+				[style.background-color]="sprinklerOn[1][1][0]?'green': 'red'"
+			>
+				<div class="titles mobile"	><h2> Zone #6			</h2></div>
+				<div class="titles web"		><h3> Zone <br/> # 6	</h3></div>
+				<div class="buttons">
+					<input type="button" (click)="setSprinkler(1,1,true)"	value="ON"	[disabled]="  sprinklerOn[1][1][0]"	>
+					<input type="button" (click)="setSprinkler(1,1,false)"	value="OFF"	[disabled]="! sprinklerOn[1][1][0]"	>
 				</div>
 			</div>
 			<hr/>
-			<div [style.background-color]="sprinklerOn[1][3]?'green': 'red'" class="zone">
-				<div style="text-align: center">
-					<h3 style="color: white"> Zone<br/>#8 </h3>
+			<div class="zones"
+				(mouseover)="changeImage('derp')"
+				(mouseout)="changeImage('lot1')"
+				[style.background-color]="sprinklerOn[1][2][0]?'green': 'red'"
+			>
+				<div class="titles mobile"	><h2> Zone #7		</h2></div>
+				<div class="titles web"		><h3> Zone<br/># 7	</h3></div>
+				<div class="buttons">
+					<input type="button" (click)="setSprinkler(1,2,true)"	value="ON"	[disabled]="  sprinklerOn[1][2][0]">
+					<input type="button" (click)="setSprinkler(1,2,false)"	value="OFF"	[disabled]="! sprinklerOn[1][2][0]">
 				</div>
-				<div>
-					<input type="button" (click)="sprinkler(1,3,true	)" value="ON"	[disabled]="sprinklerOn[1][3]"	>
-					<input type="button" (click)="sprinkler(1,3,false	)" value="OFF"	[disabled]="!sprinklerOn[1][3]"	>
+			</div>
+			<hr/>
+			<div class="zones"
+				(mouseover)="changeImage('derp')"
+				(mouseout)="changeImage('lot1')"
+				[style.background-color]="sprinklerOn[1][3][0]?'green': 'red'"
+			>
+				<div class="titles mobile"	><h2> Zone #8		</h2></div>
+				<div class="titles web"		><h3> Zone<br/># 8	</h3></div>
+				<div class="buttons">
+					<input type="button" (click)="setSprinkler(1,3,true)"	value="ON"	[disabled]="  sprinklerOn[1][3][0]" >
+					<input type="button" (click)="setSprinkler(1,3,false)"	value="OFF"	[disabled]="! sprinklerOn[1][3][0]" >
 				</div>
 			</div>
 		</div>
+	</div>
+	<div class="web">
+		<img #zonepic style="display: flex; flex-direction: row;" src="{{zoneImage}}" alt="">
 	</div>
 </div>
